@@ -1,15 +1,15 @@
 # Project Notes
 
-## What I Did
-
-### Organizing My App
+## Organizing My App
 
 First I needed to split the app into a component hierarchy. I needed to determine my components and subcomponents. I’m referred to [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) as a guide. After reviewing the App.js file, organized my components:
 
-#### MYREADS App
+### MYREADS App
 
-- BookList Page (Component)
-  -- BookShelf (Component)
+- Book
+- BookShelf
+- BookShelves
+- SearchBooks
 
 {/_ Referring to tutorial: https://www.youtube.com/watch?v=DNdZ3-MiF1E_/}
 
