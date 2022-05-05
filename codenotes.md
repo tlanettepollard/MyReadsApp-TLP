@@ -6,10 +6,13 @@ First I needed to split the app into a component hierarchy. I needed to determin
 
 ### MYREADS App
 
-- Book
-- BookShelf
-- BookShelves
-- SearchBooks
+- App.js: includes bookshelves and add button for search
+- Book: includes bookshelf changer
+- BookShelf:
+- BookShelves:
+- SearchBooks: page includes search input bar, search results, and close button.
+
+---
 
 {/_ Referring to tutorial: https://www.youtube.com/watch?v=DNdZ3-MiF1E_/}
 
