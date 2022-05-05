@@ -1,46 +1,4 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import "./App.css";
-//import Book from './components/Book';
-
-const App = () => {
-  const [showSearchPage, setShowSearchpage] = useState(false);
-
-  
-
-  return (
-    <div className="app">
-      {showSearchPage ? (
-        <div className="search-books">
-          <div className="search-books-bar">
-            <button
-              className="close-search"
-              onClick={() => setShowSearchpage(!showSearchPage)}
-            >
-              Close
-            </button>
-            <div className="search-books-input-wrapper">
-              <input
-                type="text"
-                placeholder="Search by title, author, or ISBN"
-              />
-            </div>
-          </div>
-          <div className="search-books-results">
-            <ol className="books-grid"></ol>
-          </div>
-        </div>
-      ) : (
-        <div className="list-books">
-          <Header />
-            
-          <div className="list-books-content">
-            <div>
-              <div className="bookshelf">
-                <h2 className="bookshelf-title">Currently Reading</h2>
-                <div className="bookshelf-books">
-                  <ol className="books-grid">
-                    <li>
+<li>
                       <div className="book">
                         <div className="book-top">
                           <div
@@ -270,18 +228,3 @@ const App = () => {
                         <div className="book-authors">Mark Twain</div>
                       </div>
                     </li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="open-search">
-            <button onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default App;
