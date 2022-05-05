@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
+
 import "./App.css";
-//import Book from './components/Book';
+import Header from './components/Header';
+
 
 const App = () => {
   const [showSearchPage, setShowSearchpage] = useState(false);
 
   
-
+   
   return (
     <div className="app">
       {showSearchPage ? (
@@ -32,8 +33,7 @@ const App = () => {
         </div>
       ) : (
         <div className="list-books">
-          <Header />
-            
+          <Header />  
           <div className="list-books-content">
             <div>
               <div className="bookshelf">
@@ -41,7 +41,7 @@ const App = () => {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     <li>
-                      <div className="book">
+                        <div className="book">
                         <div className="book-top">
                           <div
                             className="book-cover"
