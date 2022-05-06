@@ -2,15 +2,20 @@
 
 ## Organizing My App
 
-First I needed to split the app into a component hierarchy. I needed to determine my components and subcomponents. I’m referred to [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) as a guide. After reviewing the App.js file, organized my components:
+First I needed to split the app into a component hierarchy. I needed to determine my components and subcomponents. I’m referred to [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) as a guide. After reviewing the App.js file, organized my components: MainPage, SearchPage, Book, and Header.
+Then I built a static version of my app with the UI
 
 ### MYREADS App
 
-- App.js: includes bookshelves and add button for search
+- App.js: includes MainPage and SearchPage
 - Book: includes bookshelf changer
-- BookShelf:
-- BookShelves:
-- SearchBooks: page includes search input bar, search results, and close button.
+- MainPage: includes book and add book/open search button
+- SearchBooks: page includes search input bar, search results, and close button; includes book
+
+### Helpful Resources
+
+- [Maeva NGUYEN](https://www.youtube.com/watch?v=i6L2jLHV9j8)
+- [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 
 ---
 
