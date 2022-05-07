@@ -1,7 +1,8 @@
 import React from 'react';
 
 
-const Book = () => {
+const Book = (book) => {
+
     return (
         <div className="book">
             <div className="book-top">
@@ -9,7 +10,7 @@ const Book = () => {
                     style={{
                         width: 128,
                         height: 193,
-                        
+                       
                     }}></div>
                 <div className="book-shelf-changer">
                     <select>
