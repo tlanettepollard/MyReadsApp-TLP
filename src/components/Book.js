@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 /* Referred to Contact List Lessons for adding style and images */
 
-const Book = ({book, changeBookShelf}) => {
+const Book = ({ book, changeBookShelf}) => {
 
+   
     return (
         <div className="book">
             <div className="book-top">

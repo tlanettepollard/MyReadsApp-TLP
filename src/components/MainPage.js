@@ -3,9 +3,11 @@ import BookShelf from './BookShelf';
 import { Link } from 'react-router-dom';
 
 
-const MainPage = ({ books, updateBookShelf }) => {
+const MainPage = ({ books, changeBookShelf}) => {
+
 
     console.log(books);
+  
 
     const currentlyReading = books.filter((book) => book.shelf === 'currentlyReading');
     const wantToRead = books.filter((book) => book.shelf === 'wantToRead');
@@ -15,9 +17,9 @@ const MainPage = ({ books, updateBookShelf }) => {
         <div>
             <div className="list-books-content">
                 <div>
-                    <BookShelf title='Currently Reading' books={currentlyReading} updateBookShelf={updateBookShelf}/>
-                    <BookShelf title='Want to Read' books={wantToRead} updateBookShelf={updateBookShelf}/>
-                    <BookShelf title='Read' books={read} updateBookShelf={updateBookShelf}/>
+                    <BookShelf title='Currently Reading' books={currentlyReading} onChangeShelf={changeBookShelf}/>
+                    <BookShelf title='Want to Read' books={wantToRead}  onChangeShelf={changeBookShelf}/>
+                    <BookShelf title='Read' books={read} onChangeShelf={changeBookShelf} />
                 </div>
             </div>
             
