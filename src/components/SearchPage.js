@@ -1,13 +1,17 @@
 import React from 'react';
-//import Book from './Book';
+import Book from './Book';
+//import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 //import * as BooksAPI from '../BooksAPI';
 
-const SearchPage = (books) => {
+
+
+
+const SearchPage = () => {
   
   
-    return (
-        <div className="search-books">
+  return (
+      <div className="search-books">
         <div className="search-books-bar">
           <Link to="/main-page">
             <button className="close-search" >
@@ -17,18 +21,19 @@ const SearchPage = (books) => {
           <div className="search-books-input-wrapper">
             <input
               type="text"
-              placeholder="Search by title, author, or ISBN"
-             
-              
+              placeholder="Search by title, author, or ISBN" 
             />
-            </div>
-          </div>
-        <div className="search-books-results">
-            <ol className="books-grid">
-            </ol>
           </div>
         </div>
-    );
+        <div className="search-books-results">
+          <ol className="books-grid">
+            <Book
+            />
+          </ol>
+        </div>
+      </div>
+  );
 };
+
 
 export default SearchPage;

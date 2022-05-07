@@ -1,9 +1,9 @@
 import React from 'react';
 import Book from './Book';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 
-const BookShelf = ({ books, title, changeBookShelf }) => {
+const BookShelf = ({ books, title, updateBookShelf }) => {
     /*Referred to L3 State Management, L3 Passing Data 1 and 2 to map through the list of books */
 
     return (
@@ -11,9 +11,12 @@ const BookShelf = ({ books, title, changeBookShelf }) => {
             <h2 className="bookshelf-title">{title}</h2>
             <div className="bookshelf-books">
                 <ol className="books-grid">
-                    {books.map(b => (
-                        <li key={b.id}>
-                            <Book book={b} changeBookShelf={changeBookShelf}/>
+                    {books.map(book => (
+                        <li key={book.id}>
+                            <Book
+                                book={book}
+                                changeBookShelf={updateBookShelf}
+                            />
                     </li> 
                     ))}   
                 </ol>
@@ -22,11 +25,11 @@ const BookShelf = ({ books, title, changeBookShelf }) => {
     );
 };
 
-BookShelf.propTypes = {
+/*BookShelf.propTypes = {
     title: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
     //changeBookShelf: PropTypes.func.isRequired
-};
+};*/
 
 
 export default BookShelf; 

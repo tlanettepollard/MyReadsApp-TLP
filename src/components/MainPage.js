@@ -3,7 +3,7 @@ import BookShelf from './BookShelf';
 import { Link } from 'react-router-dom';
 
 
-const MainPage = ({ books, changeBookShelf}) => {
+const MainPage = ({ books, updateBookShelf }) => {
 
 
     console.log(books);
@@ -17,9 +17,9 @@ const MainPage = ({ books, changeBookShelf}) => {
         <div>
             <div className="list-books-content">
                 <div>
-                    <BookShelf title='Currently Reading' books={currentlyReading} onChangeShelf={changeBookShelf}/>
-                    <BookShelf title='Want to Read' books={wantToRead}  onChangeShelf={changeBookShelf}/>
-                    <BookShelf title='Read' books={read} onChangeShelf={changeBookShelf} />
+                    <BookShelf title='Currently Reading' books={currentlyReading} updateBookShelf={updateBookShelf}/>
+                    <BookShelf title='Want to Read' books={wantToRead} updateBookShelf={updateBookShelf} />
+                    <BookShelf title='Read' books={read} updateBookShelf={updateBookShelf} />
                 </div>
             </div>
             

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SearchPage from './components/SearchPage';
 import MainPage from './components/MainPage';
@@ -19,41 +19,45 @@ const App = () => {
     getBooks();
   }, []);
 
-  const changeBookShelf = (book, shelf) => {
-    BooksAPI.update({ id: book.id }, shelf)
-      .then(() => {
-        book.shelf = shelf
-        setBooks({
-          books: books.filter(b => b.id !== book.id).concat(book)
-        })
+  const updateBookShelf = (book, newShelf) => {
+    const updatedBooks = books.map(b => {
+      if (b.id === book.id) {
+        book.shelf = newShelf;
+        return book;
+      }
+      return b;
     })
-  }
+    setBooks(updatedBooks);
+    BooksAPI.update(book, newShelf);
+ }
   
   
-
   return (
     <div className="app">
-      <Routes>
-        {/* MainPage */}
-        <Route path="/main-page" element={
-          <div className="list-books">
-            <Header />
-            <MainPage
-              books={books}
-              onChangeShelf={changeBookShelf}
-            />
-          </div>
-        }> 
-        </Route>
+      
+        <Routes>
+          {/* MainPage */}
+          <Route path="/" element={
+            <div className="list-books">
+              <Header />
+              <MainPage
+                books={books}
+                updateBookShelf={updateBookShelf}
+              />
+            </div>
+          }> 
+          </Route>
 
-        {/* SearchPage */}
-        <Route path="/search-page" element={
-          <SearchPage  
-          onChangeShelf={changeBookShelf}  
-          />
-        }>  
-        </Route>
-      </Routes>
+          {/* SearchPage */}
+          <Route path="search-page" element={
+            <SearchPage 
+              books={books} 
+              updateBookShelf={updateBookShelf}
+            />
+          }>  
+          </Route>
+        </Routes>
+      
     </div>
   );
 };
