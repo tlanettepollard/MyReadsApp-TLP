@@ -15,7 +15,7 @@ const BookShelf = ({ books, title, updateBookShelf }) => {
                     <li>
                         <Book
                             key={book.id}
-                            book={book}
+                            books={book}
                             changeBookShelf={updateBookShelf}
                         />
                     </li> 
