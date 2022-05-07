@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* Referred to Contact List Lessons for adding style and images */
 
 const Book = ({book, changeBookShelf}) => {
 
@@ -10,7 +11,7 @@ const Book = ({book, changeBookShelf}) => {
                     style={{
                         width: 128,
                         height: 193,
-                       
+                        backgroundImage: `url(${book.imageLinks.thumbnail})` 
                     }}></div>
                 <div className="book-shelf-changer">
                     <select defaultValue={book.shelf ? book.shelf : 'none'} onChange={(e) => changeBookShelf(book, e.target.value)}>
