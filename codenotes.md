@@ -13,10 +13,16 @@ Then I built a static version of my app with the UI. I referred to Maeve Nguyen'
 - SearchBooks: page includes search input bar, search results, and close button; includes book
 
 My App Hierarchy:
+
+```
 App.js
----> Header
----> MainPage.js --> BookShelf.js --> Book.js
----> SearchPage.js --> Book.js
+|-- Header
+|-- MainPage.js
+    |-- BookShelf.js
+        |-- Book.js
+|-- SearchPage.js
+    |-- Book.js
+```
 
 ### Helpful Resources
 
