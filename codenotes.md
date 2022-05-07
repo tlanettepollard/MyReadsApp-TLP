@@ -24,6 +24,10 @@ App.js
     |-- Book.js
 ```
 
+### Working on My App
+
+This was a tough app. Once I had an idea of how to organize the components and where the state would live, then I started coding. It took me awhile to get the shelf changer to work. I kept getting errors about "changeBookShelf" not being a function. I decided to redo that part and really focused on how I was sending the state from the App to the other child components. I finally got it.
+
 ### Helpful Resources
 
 - [Maeva NGUYEN](https://www.youtube.com/watch?v=i6L2jLHV9j8)

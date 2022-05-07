@@ -19,15 +19,17 @@ const App = () => {
     getBooks();
   }, []);
 
-  const changeBookShelf = (book, shelf) => {
-    BooksAPI.update({ id: book.id }, shelf)
-      .then(() => {
-        book.shelf = shelf
-        setBooks({
-          books: books.filter(b => b.id !== book.id).concat(book)
-        })
+  const updateBookShelf = (book, newShelf) => {
+    const updatedBooks = books.map(b => {
+      if (b.id === book.id) {
+        book.shelf = newShelf;
+        return book;
+      }
+      return b;
     })
-  }
+    setBooks(updatedBooks);
+    BooksAPI.update(book, newShelf);
+ }
   
   
 
@@ -40,7 +42,7 @@ const App = () => {
             <Header />
             <MainPage
               books={books}
-              onChangeShelf={changeBookShelf}
+              updateBookShelf={updateBookShelf}
             />
           </div>
         }> 
@@ -48,8 +50,9 @@ const App = () => {
 
         {/* SearchPage */}
         <Route path="/search-page" element={
-          <SearchPage  
-          onChangeShelf={changeBookShelf}  
+          <SearchPage 
+            books={books} 
+            updateBookShelf={updateBookShelf}
           />
         }>  
         </Route>
