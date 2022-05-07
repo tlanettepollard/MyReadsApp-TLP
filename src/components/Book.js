@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* Referred to Contact List Lessons for adding style and images */
 
@@ -31,6 +32,11 @@ const Book = ({book, changeBookShelf}) => {
             <div className="book-authors">{book.publisher}</div>
         </div>
     );
+};
+
+Book.propTypes = {
+    book: PropTypes.object.isRequired,
+    changeBookShelf: PropTypes.func.isRequired
 };
 
 export default Book;
