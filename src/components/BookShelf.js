@@ -25,7 +25,7 @@ const BookShelf = ({ books, title, updateBookShelf }) => {
 BookShelf.propTypes = {
     title: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
-    changeBookShelf: PropTypes.func.isRequired
+    //changeBookShelf: PropTypes.func.isRequired
 };
 
 

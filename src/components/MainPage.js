@@ -1,5 +1,6 @@
 import React from 'react';
 import BookShelf from './BookShelf';
+import { Link } from 'react-router-dom';
 
 
 const MainPage = ({ books, updateBookShelf }) => {
@@ -20,8 +21,11 @@ const MainPage = ({ books, updateBookShelf }) => {
                 </div>
             </div>
             
+            {/* Referred to Router Lesson, Component Paths with Routes */}
             <div className="open-search">
-                <button>Add a book</button>
+                <Link to='/search-page'>
+                    <button>Add a book</button>
+                </Link>
             </div>
         </div>
     );
