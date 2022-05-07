@@ -12,21 +12,22 @@ const App = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const getBooks = async (books) => {
+    const getBooks = async () => {
       const res = await BooksAPI.getAll();
       setBooks(res);
-      //console.log(res);
+      
     };
     getBooks();
   }, []);
 
 
-  
   return (
     <div className="app">
       <div className="list-books">
         <Header />
-        <MainPage books={books}/>
+        <MainPage
+          books={books}
+        />
       
       </div>
     </div>
