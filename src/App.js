@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
-import "./App.css";
 import Header from './components/Header';
 //import SearchPage from './components/SearchPage';
 import MainPage from './components/MainPage';
+import "./App.css";
 import * as BooksAPI from './BooksAPI';
 
 const App = () => {

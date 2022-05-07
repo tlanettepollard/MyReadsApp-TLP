@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Book = (book) => {
+const Book = ({book, changeBookShelf}) => {
 
     return (
         <div className="book">
@@ -13,7 +13,7 @@ const Book = (book) => {
                        
                     }}></div>
                 <div className="book-shelf-changer">
-                    <select>
+                    <select defaultValue={book.shelf ? book.shelf : 'none'} onChange={(e) => changeBookShelf(book, e.target.value)}>
                         <option value="none" disabled>
                             Move to...
                         </option>
@@ -26,8 +26,8 @@ const Book = (book) => {
                     </select>
                 </div>
             </div>
-            <div className="book-title"></div>
-            <div className="book-authors"></div>
+            <div className="book-title">{book.title}</div>
+            <div className="book-authors">{book.publisher}</div>
         </div>
     );
 };
