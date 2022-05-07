@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SearchPage from './components/SearchPage';
 import MainPage from './components/MainPage';
@@ -32,31 +32,32 @@ const App = () => {
  }
   
   
-
   return (
     <div className="app">
-      <Routes>
-        {/* MainPage */}
-        <Route path="/main-page" element={
-          <div className="list-books">
-            <Header />
-            <MainPage
-              books={books}
+      
+        <Routes>
+          {/* MainPage */}
+          <Route path="/" element={
+            <div className="list-books">
+              <Header />
+              <MainPage
+                books={books}
+                updateBookShelf={updateBookShelf}
+              />
+            </div>
+          }> 
+          </Route>
+
+          {/* SearchPage */}
+          <Route path="search-page" element={
+            <SearchPage 
+              books={books} 
               updateBookShelf={updateBookShelf}
             />
-          </div>
-        }> 
-        </Route>
-
-        {/* SearchPage */}
-        <Route path="/search-page" element={
-          <SearchPage 
-            books={books} 
-            updateBookShelf={updateBookShelf}
-          />
-        }>  
-        </Route>
-      </Routes>
+          }>  
+          </Route>
+        </Routes>
+      
     </div>
   );
 };
