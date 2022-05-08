@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 
 
-const SearchBooksPage = (books, updateBookShelf) => {
+const SearchBooksPage = (book, updateBookShelf) => {
+
+
   const [query, setQuery] = useState('');
   const [searchedBooks, setSearchedBooks] = useState([]);
+  const [mergedBooks, setMergedBooks] = useState([]);
+  const [mapOfBookIds, setMapOfBookIds] = useState(new Map());
 
 
   useEffect(() => {
@@ -19,6 +23,7 @@ const SearchBooksPage = (books, updateBookShelf) => {
         } else {
           if (isActive) {
             setSearchedBooks(data)
+            setMapOfBookIds(createMapOfBooks(data))
           }
         }
       })       
@@ -30,6 +35,23 @@ const SearchBooksPage = (books, updateBookShelf) => {
     }
 
   }, [query]);
+
+  useEffect(() => {
+    const combinedBooks = searchedBooks.map(book => {
+      if (mapOfBookIds.has(book.id)) {
+        return mapOfBookIds.get(book.id);
+      } else {
+        return book;
+      }
+    })
+    setMergedBooks(combinedBooks)
+  }, [mapOfBookIds, searchedBooks])
+
+  const createMapOfBooks = (books) => {
+    const map = new Map();
+    books.map(book => map.set(book.id, book));
+    return map;
+  }
 
 
 
@@ -52,7 +74,7 @@ const SearchBooksPage = (books, updateBookShelf) => {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {searchedBooks.map((book) => (
+            {mergedBooks.map((book) => (
               <li key={book.id}>
                 <Book
                     book={book}

@@ -19,16 +19,21 @@ const App = () => {
    }, []);
   
 
-  const updateBookShelf = (book, newShelf) => {
+  const updateBookShelf = (book, shelf) => {
+    let mapOfBookIds;
     const updatedBooks = books.map(b => {
       if (b.id === book.id) {
-        book.shelf = newShelf;
+        book.shelf = shelf;
         return book;
       }
       return b;
     })
+    if (!mapOfBookIds.has(book.id)) {
+      book.shelf = shelf;
+      updatedBooks.push(book);
+    }
     setBooks(updatedBooks);
-    BooksAPI.update(book, newShelf);
+    BooksAPI.update(book, shelf);
  }
 
  
