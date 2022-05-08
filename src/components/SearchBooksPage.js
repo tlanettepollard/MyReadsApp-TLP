@@ -7,23 +7,31 @@ import * as BooksAPI from '../BooksAPI';
 
 const SearchBooksPage = (books, updateBookShelf) => {
   const [query, setQuery] = useState('');
-  const [searchBooks, setSearchBooks] = useState([]);
-
-  
+  const [searchedBooks, setSearchedBooks] = useState([]);
 
 
   useEffect(() => {
+    let isActive = true;
     if (query) {
       BooksAPI.search(query).then(data => {
         if (data.error) {
-          console.log(data)
+          setSearchedBooks([])
         } else {
-          setSearchBooks(data);
+          if (isActive) {
+            setSearchedBooks(data)
+          }
         }
       })       
+    } 
+    // Clean up data for searched books
+    return () => {
+      isActive = false;
+      setSearchedBooks([])
     }
-    
+
   }, [query]);
+
+
 
   return (
       <div className="search-books">
@@ -44,12 +52,12 @@ const SearchBooksPage = (books, updateBookShelf) => {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {searchBooks.map((book) => (
+            {searchedBooks.map((book) => (
               <li key={book.id}>
                 <Book
                     book={book}
                     changeBookShelf={updateBookShelf}
-                  />
+                />
               </li> 
              ))}  
             

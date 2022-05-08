@@ -31,9 +31,7 @@ const App = () => {
     BooksAPI.update(book, newShelf);
  }
 
-  
-  
-  
+ 
   return (
     <div className="app">
       
