@@ -11,12 +11,13 @@ const App = () => {
   const [books, setBooks] = useState([]);
  
    useEffect(() => {
-    const getBooks = async () => {
-      const res = await BooksAPI.getAll();
-      setBooks(res); 
-    };
-    getBooks();
-  }, []);
+     BooksAPI.getAll()
+       .then(data => {
+         setBooks(data)
+       }
+       );
+   }, []);
+  
 
   const updateBookShelf = (book, newShelf) => {
     const updatedBooks = books.map(b => {
