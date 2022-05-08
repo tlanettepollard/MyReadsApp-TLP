@@ -38,7 +38,7 @@ const App = () => {
       
         <Routes>
           {/* MainPage */}
-          <Route exact path="/" element={
+          <Route exact path="/main-page" element={
             <div className="list-books">
               <Header />
               <MainPage
