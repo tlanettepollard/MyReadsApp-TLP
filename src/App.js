@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import SearchPage from './components/SearchPage';
+import SearchBooksPage from './components/SearchBooksPage';
 import MainPage from './components/MainPage';
 import "./App.css";
 import * as BooksAPI from './BooksAPI';
@@ -37,7 +37,7 @@ const App = () => {
       
         <Routes>
           {/* MainPage */}
-          <Route path="/" element={
+          <Route exact path="/" element={
             <div className="list-books">
               <Header />
               <MainPage
@@ -49,8 +49,8 @@ const App = () => {
           </Route>
 
           {/* SearchPage */}
-          <Route path="search-page" element={
-            <SearchPage 
+          <Route path="/search-page" element={
+            <SearchBooksPage 
               books={books} 
               updateBookShelf={updateBookShelf}
             />
