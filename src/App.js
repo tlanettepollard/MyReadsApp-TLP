@@ -10,8 +10,7 @@ const App = () => {
 
   const [books, setBooks] = useState([]);
  
-
-  useEffect(() => {
+   useEffect(() => {
     const getBooks = async () => {
       const res = await BooksAPI.getAll();
       setBooks(res); 
@@ -30,6 +29,8 @@ const App = () => {
     setBooks(updatedBooks);
     BooksAPI.update(book, newShelf);
  }
+
+  
   
   
   return (
@@ -37,7 +38,7 @@ const App = () => {
       
         <Routes>
           {/* MainPage */}
-          <Route exact path="/" element={
+          <Route exact path="/main-page" element={
             <div className="list-books">
               <Header />
               <MainPage
