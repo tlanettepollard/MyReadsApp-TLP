@@ -26,10 +26,11 @@ App.js
 
 ### Working on My App
 
-This was a tough app. Once I had an idea of how to organize the components and where the state would live, then I started coding. It took me awhile to get the shelf changer to work. I kept getting errors about "changeBookShelf" not being a function. I decided to redo that part and really focused on how I was sending the state from the App to the other child components. I finally got it.
+This was a tough app. Once I had an idea of how to organize the components and where the state would live, then I started coding. It took me awhile to get the shelf changer to work. I kept getting errors about "changeBookShelf" not being a function. I decided to redo that part and really focused on how I was sending the state from the App to the other child components. I finally got it. (05/09/2022: I thought I got it.)
 
-#### Why I Decided to Start Over (05/09/2022)
+#### Why I Decided to Start Over
 
+(05/09/2022) I've tried to figure out one error for the last two days. I realized that after staring at my code, I needed to start again to better understand what was going on. I'm going to follow the same steps I did before to start my app. So, I erased everything and started again. I've done this with other projects and it has been successful.
 
 ### What I Learned
 
