@@ -4,10 +4,12 @@ import React from 'react';
 const SearchBooksPage = () => {
   return (
       <div className="search-books">
-        <div className="search-books-bar">
-          <button>
-            Close
-          </button>
+      <div className="search-books-bar">
+        
+            <button className="close-search">
+              Close
+            </button>
+          
           <div className="search-books-input-wrapper">
             <input
               type="text"
@@ -16,7 +18,9 @@ const SearchBooksPage = () => {
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid"></ol>
+          <ol className="books-grid">
+          
+          </ol>
         </div>
       </div>
   );

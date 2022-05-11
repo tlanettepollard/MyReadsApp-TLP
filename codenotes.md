@@ -31,6 +31,7 @@ This was a tough app. Once I had an idea of how to organize the components and w
 #### Why I Decided to Start Over
 
 (05/09/2022) I've tried to figure out one error for the last two days. I realized that after staring at my code, I needed to start again to better understand what was going on. I'm going to follow the same steps I did before to start my app. So, I erased everything and started again. I've done this with other projects and it has been successful.
+(05/10/2022) Today I was able to the Routing section of the Rubric. Unfortunately, I kept receiving the error: 'no routes matched location'. I put it away and try again tomorrow.
 
 ### What I Learned
 
