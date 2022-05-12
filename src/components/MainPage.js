@@ -1,5 +1,6 @@
 import React from 'react';
 import BookShelf from './BookShelf';
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,7 +24,7 @@ const MainPage = ({ books, newBookShelf }) => {
             
                 <div className="open-search">
                     
-                        <button>Add a book</button>
+                        <Link to='searchpage'>Add a book</Link>
                    
                 </div> 
            

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const SearchBooksPage = () => {
@@ -6,9 +7,9 @@ const SearchBooksPage = () => {
       <div className="search-books">
       <div className="search-books-bar">
         
-            <button className="close-search">
+            <Link to='/' className="close-search">
               Close
-            </button>
+            </Link>
           
           <div className="search-books-input-wrapper">
             <input
