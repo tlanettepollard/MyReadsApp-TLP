@@ -9,7 +9,6 @@ import * as BooksAPI from './BooksAPI';
 
 
 const App = () => {
-  //let navigate = useNavigate();
 
   const [books, setBooks] = useState([]);
 
@@ -25,21 +24,18 @@ const App = () => {
       );
   }, [])
 
-
-
   /* updateBookShelf method to move books between shelves */
 
-  const newBookShelf = (book, shelf) => {
+  const newBookShelf = (book, newShelf) => {
     const updatedBooks = books.map(b=> {
       if (b.id === book.id) {
-        book.shelf = shelf;
+        book.shelf = newShelf;
         return book;
       }
       return b;
     })
     setBooks(updatedBooks);
-    BooksAPI.update(book, shelf);
-    
+    BooksAPI.update(book, newShelf);
   }
 
 
@@ -64,7 +60,7 @@ const App = () => {
         <Route path='/searchpage' element={
           <SearchBooksPage
           books={books}
-          newBookShelf={newBookShelf}
+          changeBookShelf={newBookShelf}
           /> 
         }
         >

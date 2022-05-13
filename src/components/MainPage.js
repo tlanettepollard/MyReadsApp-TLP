@@ -24,7 +24,7 @@ const MainPage = ({ books, newBookShelf }) => {
             
                 <div className="open-search">
                     
-                        <Link to='searchpage'>Add a book</Link>
+                        <Link to='/searchpage'>Add a book</Link>
                    
                 </div> 
            

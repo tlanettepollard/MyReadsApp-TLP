@@ -34,7 +34,7 @@ This was a tough app. Once I had an idea of how to organize the components and w
 
 ## (05/10/2022) Today I was able to the Routing section of the Rubric. Unfortunately, I kept receiving the error: 'no routes matched location'. I put it away and try again tomorrow.
 
-(05/11/2022) I'm going to try again with my router. I finally got it to work again. Minor errors: I forgot the 'to=' in the Link statement.
+(05/11/2022) I'm going to try again with my router. I finally got it to work again. Minor errors: I forgot the 'to=' in the Link statement. Now I need to work on the Search function. 
 
 ### What I Learned
 
