@@ -1,68 +1,72 @@
-import React, { useState, useEffect } from 'react';
+import "./App.css";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import SearchBooksPage from './components/SearchBooksPage';
+//import Book from './components/Book';
 import MainPage from './components/MainPage';
-import "./App.css";
+import SearchBooksPage from './components/SearchBooksPage';
 import * as BooksAPI from './BooksAPI';
+
 
 const App = () => {
 
   const [books, setBooks] = useState([]);
- 
-   useEffect(() => {
-     BooksAPI.getAll()
-       .then(data => {
-         setBooks(data)
-       }
-       );
-   }, []);
-  
 
-  const updateBookShelf = (book, shelf) => {
-    let mapOfBookIds;
-    const updatedBooks = books.map(b => {
+  /* Used useEffect hook to get books from BooksAPI */
+  
+  useEffect(() => {
+    BooksAPI.getAll()
+      .then(data => {
+        setBooks(data)
+       console.log(data);
+        
+      }
+      );
+  }, [])
+
+  /* updateBookShelf method to move books between shelves */
+
+  const newBookShelf = (book, newShelf) => {
+    const updatedBooks = books.map(b=> {
       if (b.id === book.id) {
-        book.shelf = shelf;
+        book.shelf = newShelf;
         return book;
       }
       return b;
     })
-    if (!mapOfBookIds.has(book.id)) {
-      book.shelf = shelf;
-      updatedBooks.push(book);
-    }
     setBooks(updatedBooks);
-    BooksAPI.update(book, shelf);
- }
+    BooksAPI.update(book, newShelf);
+  }
 
- 
+
   return (
     <div className="app">
-      
-        <Routes>
-          {/* MainPage */}
-          <Route exact path="/main-page" element={
+      <Routes>
+        {/* Main Page */}
+        <Route path='/' element={
             <div className="list-books">
-              <Header />
-              <MainPage
-                books={books}
-                updateBookShelf={updateBookShelf}
-              />
-            </div>
-          }> 
-          </Route>
+            <Header />
+            <MainPage
+            books={books}
+            newBookShelf={newBookShelf}
+            /> 
+          </div>
+        }>
+          
+        </Route>
+        
+        {/* SearchPage */}
 
-          {/* SearchPage */}
-          <Route path="/search-page" element={
-            <SearchBooksPage 
-              books={books} 
-              updateBookShelf={updateBookShelf}
-            />
-          }>  
-          </Route>
-        </Routes>
-      
+        <Route path='/searchpage' element={
+          <SearchBooksPage
+          books={books}
+          changeBookShelf={newBookShelf}
+          /> 
+        }
+        >
+          
+        </Route>
+      </Routes>
     </div>
   );
 };

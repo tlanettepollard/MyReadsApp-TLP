@@ -1,27 +1,25 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
 
-/* Referred to Contact List Lessons for adding style and images */
-
-const Book = ({ book, changeBookShelf}) => {
-
-   
+const Book = ({book, newBookShelf }) => {
     return (
         <div className="book">
             <div className="book-top">
-                <div className="book-cover"
-                    style={{
-                        width: 128,
-                        height: 193,
-                        backgroundImage: `url(${book.imageLinks.smallThumbnail})` 
-                    }}></div>
+                <div
+                className="book-cover"
+                style={{
+                    width: 128,
+                    height: 193,
+                    backgroundImage:
+                    `url(${book.imageLinks.smallThumbnail})`
+                }}
+                ></div>
                 <div className="book-shelf-changer">
-                    <select defaultValue={book.shelf ? book.shelf : 'none'} onChange={e => changeBookShelf(book, e.target.value)}>
+                    <select defaultValue={book.shelf ? book.shelf : 'none'} onChange={e => newBookShelf(book, e.target.value)}>
                         <option value="none" disabled>
-                            Move to...
+                        Move to...
                         </option>
                         <option value="currentlyReading">
-                            Currently Reading
+                        Currently Reading
                         </option>
                         <option value="wantToRead">Want to Read</option>
                         <option value="read">Read</option>
@@ -34,10 +32,5 @@ const Book = ({ book, changeBookShelf}) => {
         </div>
     );
 };
-
-/*Book.propTypes = {
-    book: PropTypes.object.isRequired,
-    //changeBookShelf: PropTypes.func.isRequired
-};*/
 
 export default Book;

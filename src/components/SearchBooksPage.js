@@ -1,64 +1,36 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import Book from './Book';
 //import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 
-
-const SearchBooksPage = (book, updateBookShelf) => {
-
-
+const SearchBooksPage = (book, books, newBookShelf) => {
   const [query, setQuery] = useState('');
-  const [searchedBooks, setSearchedBooks] = useState([]);
-  const [mergedBooks, setMergedBooks] = useState([]);
-  const [mapOfBookIds, setMapOfBookIds] = useState(new Map());
+  const [resultBook, setResultBook] = useState([]);
 
-
-  useEffect(() => {
-    let isActive = true;
-    if (query) {
-      BooksAPI.search(query).then(data => {
-        if (data.error) {
-          setSearchedBooks([])
-        } else {
-          if (isActive) {
-            setSearchedBooks(data)
-            setMapOfBookIds(createMapOfBooks(data))
-          }
-        }
-      })       
-    } 
-    // Clean up data for searched books
-    return () => {
-      isActive = false;
-      setSearchedBooks([])
-    }
-
-  }, [query]);
-
-  useEffect(() => {
-    const combinedBooks = searchedBooks.map(book => {
-      if (mapOfBookIds.has(book.id)) {
-        return mapOfBookIds.get(book.id);
-      } else {
-        return book;
-      }
+  const updateQuery = (query) => {
+    setQuery({
+      query: query
     })
-    setMergedBooks(combinedBooks)
-  }, [mapOfBookIds, searchedBooks])
-
-  const createMapOfBooks = (books) => {
-    const map = new Map();
-    books.map(book => map.set(book.id, book));
-    return map;
+    updateResults(query);
   }
 
+  const updateResults = (query) => {
+    if (query) {
+      BooksAPI.search(query).then((resultBook) => {
+        // error handling for search
+        resultBook.error ? setResultBook({resultBook: []}) : setResultBook({ resultBook: resultBook})
+      }) 
+    } else {
+      setResultBook({ resultBook: [] });
+    }
+  }
 
-
+  
   return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link to="/main-page">
+          <Link to="/">
             <button className="close-search" >
               Close
             </button>
@@ -66,23 +38,33 @@ const SearchBooksPage = (book, updateBookShelf) => {
           <div className="search-books-input-wrapper">
             <input
               type="text"
-            placeholder="Search by title, author, or ISBN"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by title, author, or ISBN"
+              value={query}
+              onChange={(event) => updateQuery(event.target.value)}
             />
           </div>
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {mergedBooks.map((book) => (
-              <li key={book.id}>
-                <Book
-                    book={book}
-                    changeBookShelf={updateBookShelf}
-                />
-              </li> 
-             ))}  
+          {resultBook.map(book => {
+            let shelfName = 'none';
             
+            books.map(book => (
+              book.id === resultBook.id ?
+                shelfName = book.shelf : ''
+            ));
+
+            return (
+              <li key={resultBook.id}>
+                <Book
+                  book={resultBook}
+                  newBookShelf={newBookShelf}
+                  currentShelf={shelfName}
+                />
+              </li>
+            );
+          }
+          )}   
           </ol>
         </div>
       </div>
