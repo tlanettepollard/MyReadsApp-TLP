@@ -1,45 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Book from './Book';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 
+
 const SearchBooksPage = ({ books, newBookShelf }) => {
   const [query, setQuery] = useState('');
   const [matchedBooks, setMatchedBooks] = useState([]);
+  
 
   const updateQuery = (query) => {
     setQuery(query);
-    searchedBooks(query);
+    handleBooksSearch(query);
   };
 
-  const searchedBooks = (query) => {
+  const handleBooksSearch = useCallback((query) => {
     if (query) {
-      BooksAPI.search(query).then((searchedBooks) => {
-        searchedBooks.error ? setMatchedBooks([]) : setMatchedBooks(searchedBooks)
+      BooksAPI.search(query).then((matchedBooks) => {
+        matchedBooks.error ? setMatchedBooks([]) : setMatchedBooks(matchedBooks);
       });
     } else {
       setMatchedBooks([]);
     }
-  };
+  }, []);
 
+ 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      searchedBooks(query);
-    }, 400);
-
-    return (() => clearTimeout(timer))
-  }, [query])
-    
-  
+    handleBooksSearch();
+  }, [query, handleBooksSearch]);
   
   return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link to="/">
-            <button className="close-search" >
-              Close
-            </button>
+        <Link to="/">
+          <button className='close-search'>
+            Close
+          </button>
           </Link>
           <div className="search-books-input-wrapper">
             <input

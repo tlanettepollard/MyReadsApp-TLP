@@ -11,17 +11,18 @@ import * as BooksAPI from './BooksAPI';
 const App = () => {
 
   const [books, setBooks] = useState([]);
-
+  
   /* Used useEffect hook to get books from BooksAPI */
   
   useEffect(() => {
     BooksAPI.getAll()
       .then(data => {
         setBooks(data)
-       console.log(data);
-        
+        console.log(data);
+ 
       }
       );
+      
   }, [])
 
   /* updateBookShelf method to move books between shelves */
@@ -40,6 +41,7 @@ const App = () => {
   }
 
   return (
+
     <div className="app">
       <Routes>
         {/* Main Page */}

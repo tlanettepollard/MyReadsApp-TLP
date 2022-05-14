@@ -22,11 +22,9 @@ const MainPage = ({ books, newBookShelf }) => {
 
              {/* Referred to Router Lesson, Component Paths with Routes */}
             
-                <div className="open-search">
-                    
-                        <Link to='/searchpage'>Add a book</Link>
-                   
-                </div> 
+            <div className="open-search">   
+                <Link to='/searchpage' className='open-search'></Link>    
+            </div> 
            
         </div>
     );
