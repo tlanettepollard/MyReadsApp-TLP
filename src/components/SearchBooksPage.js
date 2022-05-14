@@ -25,10 +25,12 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
     }
   }, []);
 
+  
  
   useEffect(() => {
     handleBooksSearch();
   }, [query, handleBooksSearch]);
+
   
   return (
       <div className="search-books">
@@ -49,8 +51,8 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {query && matchedBooks.map((matchedBooks) => {
-              let shelf = 'none';
+          {query && matchedBooks.map((matchedBooks) => {
+            let shelf = 'none';
               books.map((book) => book.id === matchedBooks.id ? (shelf = book.shelf) : '');
               return  (
                 <li key={matchedBooks.id}>
@@ -58,6 +60,7 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
                     book={matchedBooks}
                     shelf={shelf}
                     newBookShelf={newBookShelf}
+                    handleBooksSearch={handleBooksSearch}
                   />
                 </li>  
               );
