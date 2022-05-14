@@ -27,6 +27,7 @@ const App = () => {
   /* updateBookShelf method to move books between shelves */
 
   const newBookShelf = (book, newShelf) => {
+
     const updatedBooks = books.map(b=> {
       if (b.id === book.id) {
         book.shelf = newShelf;
@@ -37,7 +38,6 @@ const App = () => {
     setBooks(updatedBooks);
     BooksAPI.update(book, newShelf);
   }
-
 
   return (
     <div className="app">

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Book from './Book';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 
@@ -22,6 +22,16 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
       setMatchedBooks([]);
     }
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchedBooks(query);
+    }, 400);
+
+    return (() => clearTimeout(timer))
+  }, [query])
+    
+  
   
   return (
       <div className="search-books">
@@ -45,7 +55,7 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
             {query && matchedBooks.map((matchedBooks) => {
               let shelf = 'none';
               books.map((book) => book.id === matchedBooks.id ? (shelf = book.shelf) : '');
-              return (
+              return  (
                 <li key={matchedBooks.id}>
                   <Book
                     book={matchedBooks}
@@ -61,5 +71,9 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
   );
 };
 
+SearchBooksPage.propTypes = {
+  books: PropTypes.array.isRequired,
+  newBookShelf: PropTypes.func.isRequired,
+};
 
 export default SearchBooksPage;

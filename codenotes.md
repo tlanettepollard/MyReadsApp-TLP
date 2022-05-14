@@ -36,6 +36,8 @@ This was a tough app. Once I had an idea of how to organize the components and w
 
 (05/11/2022) I'm going to try again with my router. I finally got it to work again. Minor errors: I forgot the 'to=' in the Link statement. Now I need to work on the Search function. 
 
+(05/13/2022) I finally got it! I was able to get my search function to work! Yes! 
+
 ### What I Learned
 
 - Debounce and Throttle Callbacks:
