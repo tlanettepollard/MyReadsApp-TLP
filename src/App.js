@@ -60,7 +60,7 @@ const App = () => {
         <Route path='/searchpage' element={
           <SearchBooksPage
           books={books}
-          changeBookShelf={newBookShelf}
+          newBookShelf={newBookShelf}
           /> 
         }
         >
