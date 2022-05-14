@@ -11,22 +11,24 @@ import * as BooksAPI from './BooksAPI';
 const App = () => {
 
   const [books, setBooks] = useState([]);
-
+  
   /* Used useEffect hook to get books from BooksAPI */
   
   useEffect(() => {
     BooksAPI.getAll()
       .then(data => {
         setBooks(data)
-       console.log(data);
-        
+        console.log(data);
+ 
       }
       );
+      
   }, [])
 
   /* updateBookShelf method to move books between shelves */
 
   const newBookShelf = (book, newShelf) => {
+
     const updatedBooks = books.map(b=> {
       if (b.id === book.id) {
         book.shelf = newShelf;
@@ -38,8 +40,8 @@ const App = () => {
     BooksAPI.update(book, newShelf);
   }
 
-
   return (
+
     <div className="app">
       <Routes>
         {/* Main Page */}
