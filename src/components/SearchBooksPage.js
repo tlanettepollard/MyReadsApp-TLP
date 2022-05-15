@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 
 
-const SearchBooksPage = ({ books, newBookShelf }) => {
+const SearchBooksPage = ({ books, newBookShelf, shelf }) => {
   const [query, setQuery] = useState('');
   const [matchedBooks, setMatchedBooks] = useState([]);
-  
+ 
 
   const updateQuery = (query) => {
     setQuery(query);
@@ -52,9 +52,9 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
         <div className="search-books-results">
           <ol className="books-grid">
           {query && matchedBooks.map((matchedBooks) => {
-            let shelf = 'none';
+            //let shelf = 'none';
               books.map((book) => book.id === matchedBooks.id ? (shelf = book.shelf) : '');
-              return  (
+              return (
                 <li key={matchedBooks.id}>
                   <Book
                     book={matchedBooks}
@@ -62,7 +62,7 @@ const SearchBooksPage = ({ books, newBookShelf }) => {
                     newBookShelf={newBookShelf}
                     handleBooksSearch={handleBooksSearch}
                   />
-                </li>  
+                </li> 
               );
             })}
           </ol>
