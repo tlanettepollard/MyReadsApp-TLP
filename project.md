@@ -11,7 +11,7 @@ To get started developing right away:
 - install all project dependencies with `npm install`
 - start the development server with `npm start`
 
-## What You're Getting
+## Directory Hierarchy
 
 ```bash
 ├── CONTRIBUTING.md
