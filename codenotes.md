@@ -28,27 +28,21 @@ App.js
 
 This was a tough app. Once I had an idea of how to organize the components and where the state would live, then I started coding. It took me awhile to get the shelf changer to work. I kept getting errors about "changeBookShelf" not being a function. I decided to redo that part and really focused on how I was sending the state from the App to the other child components. I finally got it. (05/09/2022: I thought I got it.)
 
-#### Why I Decided to Start Over
+### Why I Decided to Start Over
+
+I decided to start over because I was getting confused with how I was passing my data between my components. I used Nguyen's approach of going back to the rubric and reviewing the project README notes about the BooksAPI. I found this to be helpful. 
+
+#### Starting Over Notes
 
 (05/09/2022) I've tried to figure out one error for the last two days. I realized that after staring at my code, I needed to start again to better understand what was going on. I'm going to follow the same steps I did before to start my app. So, I erased everything and started again. I've done this with other projects and it has been successful.
 
 (05/10/2022) Today I was able to the Routing section of the Rubric. Unfortunately, I kept receiving the error: 'no routes matched location'. I put it away and try again tomorrow.
 
-(05/11/2022) I'm going to try again with my router. I finally got it to work again. Minor errors: I forgot the 'to=' in the Link statement. Now I need to work on the Search function. 
+(05/11/2022) I'm going to try again with my router. I finally got it to work again. Minor errors: I forgot the 'to=' in the Link statement. Now I need to work on the Search function.
 
 (05/13/2022) I finally got it! I was able to get my search function to work! Yes! 
 
-(05/14/2022) I finally completed my app. I still can't get the book to appear on the bookshelves unless I refresh the page after I added the book on the search page. 
-
-### What I Learned
+(05/14/2022) I finally completed my app. I still can't get the book to appear on the bookshelves unless I refresh the home page after I added the book on the search page. I know it's something I've seen in the lessons. 
 
 
-
-### Helpful Resources
-
-- [Maeva NGUYEN](https://www.youtube.com/watch?v=i6L2jLHV9j8)
-- [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
-- [Kenodipe](https://www.youtube.com/watch?v=DNdZ3-MiF1E&t=590s&ab_channel=kenjournal)
-
----
 

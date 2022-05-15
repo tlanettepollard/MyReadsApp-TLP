@@ -1,6 +1,19 @@
 # MyReads BookShelf App
 
-### Organizing My App
+## About MyReads
+
+The **MyReads App** allows the use to organize and move books between three different shelves.
+
+- Currently Reading
+- Want to Read
+- Read
+
+The fourth option, "None" allows the user to remove the book from the library. The user can add a book by selecting the button at the bottom of the page. This action will take the user to the app's search page. As the user types in the text for their book topic/title, search results will appear. This app uses the **BooksAPI (Udacity)**.
+
+- The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md).
+- That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+
+## Organizing My App
 
 First I needed to split the app into a component hierarchy. I needed to determine my components and subcomponents. I’m referred to [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) as a guide. After reviewing the App.js file, organized my components: MainPage, SearchPage, Book, and Header.
 Then I built a static version of my app with the UI. I referred to Maeve Nguyen's tutorial on how to organize the project. I had to convert from class components to functional components.
@@ -26,12 +39,14 @@ App.js
 
 ### Screen Shots of App
 
-MyReads Homepage
+#### MyReads Homepage
+
 ![MyReads App Homepage](src/screenshots/myreadshomepage.jpg)
 
 ---
 
-Book Search Page
+#### Book Search Page
+
 ![MyReads App Searchpage](src/screenshots/myreadssearchpage.jpg)
 
 ---
@@ -42,16 +57,14 @@ This was a tough app. Once I had an idea of how to organize the components and w
 
 ### Why I Decided to Start Over
 
-I decided to start over because I was getting confused with how I was passing my data between my components.
+I decided to start over because I was getting confused with how I was passing my data between my components. I used Nguyen's approach of going back to the rubric and reviewing the project README notes about the BooksAPI. I found this to be helpful. You can view my notes here: [Starting Over](codenotes.md);
 
-#### Starting Over Notes
+### What I Learned
 
-(05/09/2022) I've tried to figure out one error for the last two days. I realized that after staring at my code, I needed to start again to better understand what was going on. I'm going to follow the same steps I did before to start my app. So, I erased everything and started again. I've done this with other projects and it has been successful.
+### Helpful Resources
 
-(05/10/2022) Today I was able to the Routing section of the Rubric. Unfortunately, I kept receiving the error: 'no routes matched location'. I put it away and try again tomorrow.
+- [Maeva NGUYEN](https://www.youtube.com/watch?v=i6L2jLHV9j8)
+- [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
+- [Kenodipe](https://www.youtube.com/watch?v=DNdZ3-MiF1E&t=590s&ab_channel=kenjournal)
 
-(05/11/2022) I'm going to try again with my router. I finally got it to work again. Minor errors: I forgot the 'to=' in the Link statement. Now I need to work on the Search function.
-
-(05/13/2022) I finally got it! I was able to get my search function to work! Yes!
-
-(05/14/2022) I finally completed my app. I still can't get the book to appear on the bookshelves unless I refresh the page after I added the book on the search page.
+---
