@@ -26,6 +26,8 @@ App.js
 
 ### Screen Shots of App
 
+## MyReads Homepage
+
 ![MyReads App Homepage](src/screenshots/myreadshomepage.jpg)
 
 ### Working on My App
