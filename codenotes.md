@@ -38,9 +38,11 @@ This was a tough app. Once I had an idea of how to organize the components and w
 
 (05/13/2022) I finally got it! I was able to get my search function to work! Yes! 
 
+(05/14/2022) I finally completed my app. I still can't get the book to appear on the bookshelves unless I refresh the page after I added the book on the search page. 
+
 ### What I Learned
 
-- Debounce and Throttle Callbacks:
+
 
 ### Helpful Resources
 
@@ -50,4 +52,3 @@ This was a tough app. Once I had an idea of how to organize the components and w
 
 ---
 
-{/_ Referring to tutorial: https://www.youtube.com/watch?v=DNdZ3-MiF1E_/}
