@@ -26,9 +26,15 @@ App.js
 
 ### Screen Shots of App
 
-## MyReads Homepage
-
+MyReads Homepage
 ![MyReads App Homepage](src/screenshots/myreadshomepage.jpg)
+
+---
+
+Book Search Page
+![MyReads App Searchpage](src/screenshots/myreadssearchpage.jpg)
+
+---
 
 ### Working on My App
 
