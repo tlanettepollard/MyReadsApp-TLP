@@ -37,7 +37,7 @@ App.js
     |-- Book.js
 ```
 
-### Screen Shots of App
+## Screen Shots of App
 
 #### MyReads Homepage
 
@@ -51,17 +51,21 @@ App.js
 
 ---
 
-### Working on My App
+## Working on My App
 
 This was a tough app. Once I had an idea of how to organize the components and where the state would live, then I started coding. It took me awhile to get the shelf changer to work. I kept getting errors about "changeBookShelf" not being a function. I decided to redo that part and really focused on how I was sending the state from the App to the other child components. I finally got it. (05/09/2022: I thought I got it.)
 
-### Why I Decided to Start Over
+## Why I Decided to Start Over
 
 I decided to start over because I was getting confused with how I was passing my data between my components. I used Nguyen's approach of going back to the rubric and reviewing the project README notes about the BooksAPI. I found this to be helpful. You can view my notes here: [Starting Over](codenotes.md);
 
-### What I Learned
+## What I Learned
 
-### Helpful Resources
+I think I have a better understanding of how props are passed into other components and how to manage component state. I still have some work to do in this area.
+
+## Helpful Resources
+
+These are a few resources that I used to help me organize and understand my app components. **Thinking in React** was extremely helpful.
 
 - [Maeva NGUYEN](https://www.youtube.com/watch?v=i6L2jLHV9j8)
 - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
